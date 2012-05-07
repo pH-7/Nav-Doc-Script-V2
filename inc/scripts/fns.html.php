@@ -22,7 +22,7 @@ function get_links_html() {
         $sLink = htmlentities(str_replace(array('.tpl', DATA_PATH, LANG . '/'), '', $sLink));
         $sName = ucfirst(str_replace(array('/', '-'), array('', ' '), $sLink));
 
-        $sHtml .= '<li>' . $i++ . ') <a href="' . ROOT_URL . LANG . '/' . $sLink . '" title="' . $sName . '">' . $sName . '</a>.</li>';
+        $sHtml .= '<li>' . $i++ . ') <a href="' . RELATIVE . LANG . '/' . $sLink . '" title="' . $sName . '" data-load="ajax">' . $sName . '</a>.</li>';
     }
 
     $sHtml .= '</ul>';
@@ -41,7 +41,7 @@ function get_langs_html() {
 
     foreach ($aLangs as $sLang) {
         if($sLang === LANG) continue;
-        $sHtml .= '<a href="' . ROOT_URL . substr($sLang,0,2) . '"><img src="' . STATIC_URL . 'img/flags/' . $sLang . '.gif" alt="' . $aLangsList[$sLang] . '" title="' . $aLangsList[$sLang] . '" /></a>';
+        $sHtml .= '<a href="' . RELATIVE . substr($sLang,0,2) . '" data-load="ajax"><img src="' . STATIC_URL . 'img/flags/' . $sLang . '.gif" alt="' . $aLangsList[$sLang] . '" title="' . $aLangsList[$sLang] . '" /></a>&nbsp;';
     }
 
     return $sHtml;

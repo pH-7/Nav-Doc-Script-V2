@@ -11,7 +11,7 @@
   <div class="center" id="block">
 
          <header>
-           <h1><a id="logo" href="{site_url}">pH</a></h1>
+           <h1><a id="logo" href="{site_url}" data-load="ajax">pH</a></h1>
          </header>
 
       <div id="ajph">

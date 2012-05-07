@@ -22,4 +22,4 @@ define('ROOT_PATH', dirname(__DIR__) . '/');
 define('DATA_PATH', ROOT_PATH . 'data/');
 
 define('ROOT_URL', PROT_URL . $_SERVER['HTTP_HOST'] . SELF);
-define('STATIC_URL', ROOT_URL . 'static/');
+define('STATIC_URL', RELATIVE . 'static/');

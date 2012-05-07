@@ -19,7 +19,7 @@ $(document).ready(function() {
 });
 
 function doPager() {
- $('article a, footer a, a#logo').click(function(e) {
+ $('a[data-load=ajax]').click(function(e) {
   e.preventDefault();
   $('#ajph').html("<div id='loading'>Loading...</div>");
   loadPage($(this).attr('href'));

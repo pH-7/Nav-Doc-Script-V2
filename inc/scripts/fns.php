@@ -14,8 +14,8 @@ defined('PH7') or exit('Restricted access');
  * @return string The first two lowercase letter of the browser language.
  */
 function get_browser_lang() {
-         $lang = explode(',' ,@$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-         return htmlspecialchars(strtolower(substr(chop($lang[0]), 0, 2)));
+    $lang = explode(',' ,@$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    return htmlspecialchars(strtolower(substr(chop($lang[0]), 0, 2)));
 }
 
 /**
@@ -41,7 +41,7 @@ function get_page($sPage) {
  * @return string The text parsed.
  */
 function parse_var($sContent) {
-    $sContent = str_replace('{site_url}', ROOT_URL, $sContent);
+    $sContent = str_replace('{site_url}', RELATIVE, $sContent);
     $sContent = str_replace('{static_url}', STATIC_URL, $sContent);
     $sContent = str_replace('{tpl_name}', TPL, $sContent);
     $sContent = str_replace('{menu_links}', get_links_html(), $sContent);
@@ -90,25 +90,25 @@ function get_current_url() {
  * @return string The language available.
  */
 function set_lang() {
-       if(!empty($_GET['l']) && is_file(DATA_PATH . $_GET['l'] . '/core/welcome.tpl') && is_file(DATA_PATH . $_GET['l'] . '/core/404-error.tpl'))
-       {
-         setcookie('pH7_doc_lang', $_GET['l'], time()+60*60*24*365, null, null, false, true);
-         $sLang = $_GET['l'];
-       }
-       elseif (isset($_COOKIE['pH7_doc_lang']) && is_dir(DATA_PATH . $_COOKIE['pH7_doc_lang'] . '/core/'))
-       {
-         $sLang = $_COOKIE['pH7_doc_lang'];
-       }
-       elseif(is_dir(DATA_PATH . get_browser_lang() . '/core/'))
-       {
-         $sLang = get_browser_lang();
-       }
-       else
-       {
-         $sLang = DEF_LANG;
-       }
+    if(!empty($_GET['l']) && is_file(DATA_PATH . $_GET['l'] . '/core/welcome.tpl') && is_file(DATA_PATH . $_GET['l'] . '/core/404-error.tpl'))
+    {
+        setcookie('pH7_doc_lang', $_GET['l'], time()+60*60*24*365, null, null, false, true);
+        $sLang = $_GET['l'];
+    }
+    elseif (isset($_COOKIE['pH7_doc_lang']) && is_dir(DATA_PATH . $_COOKIE['pH7_doc_lang'] . '/core/'))
+    {
+        $sLang = $_COOKIE['pH7_doc_lang'];
+    }
+    elseif(is_dir(DATA_PATH . get_browser_lang() . '/core/'))
+    {
+        $sLang = get_browser_lang();
+    }
+    else
+    {
+        $sLang = DEF_LANG;
+    }
 
-       return $sLang;
+    return $sLang;
 }
 
 /**
