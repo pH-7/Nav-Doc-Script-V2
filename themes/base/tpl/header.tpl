@@ -2,7 +2,7 @@
 <html>
 <head>
  <meta charset="utf-8" />
- <title>Documentation</title>
+ <title>{page_name} - {site_name}</title>
  <link rel="stylesheet" href="{site_url}themes/{tpl_name}/css/common.css" />
  <link rel="stylesheet" href="{site_url}themes/{tpl_name}/css/js/ajph.css" />
 </head>
@@ -11,7 +11,7 @@
   <div class="center" id="block">
 
          <header>
-           <h1><a id="logo" href="{site_url}" data-load="ajax">pH</a></h1>
+           <h1><a id="logo" href="{site_url}" data-load="ajax">{site_name}</a></h1>
          </header>
 
       <div id="ajph">

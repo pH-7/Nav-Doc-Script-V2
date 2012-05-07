@@ -10,7 +10,7 @@ namespace PH7\Doc;
 defined('PH7') or exit('Restricted access');
 
 /**
- * @desc Get Browser User Language.
+ * @desc Gets Browser User Language.
  * @return string The first two lowercase letter of the browser language.
  */
 function get_browser_lang() {
@@ -44,10 +44,30 @@ function parse_var($sContent) {
     $sContent = str_replace('{site_url}', RELATIVE, $sContent);
     $sContent = str_replace('{static_url}', STATIC_URL, $sContent);
     $sContent = str_replace('{tpl_name}', TPL, $sContent);
+    $sContent = str_replace('{site_name}', SITE_NAME, $sContent);
+    $sContent = str_replace('{page_name}', get_page_name(), $sContent);
     $sContent = str_replace('{menu_links}', get_links_html(), $sContent);
     $sContent = str_replace('{menu_langs}', get_langs_html(), $sContent);
 
     return $sContent;
+}
+
+/**
+ * @desc Gets the page name.
+ * @return string
+ */
+function get_page_name() {
+    if(empty($_GET['p']))
+    {
+        $sName = SITE_SLOGAN;
+    }
+    else
+    {
+        $sPageName = str_replace(array('-','_'), '', $_GET['p']);
+        $sName = ucfirst($sPageName);
+    }
+
+    return $sName;
 }
 
 /**
