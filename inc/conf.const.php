@@ -14,27 +14,29 @@ defined('PH7') or exit('Restricted access');
 
 ########## URL ##########
 
-$sHttp = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']=='on')) ? 'https://' : 'http://';
+$sHttp = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS'] == 'on')) ? 'https://' : 'http://';
 $sPhp_self = dirname(htmlspecialchars($_SERVER['PHP_SELF']));
 
 #################### CONSTANTS ####################
 
 
-########## URL ##########
+########## OTHERS ##########
 
 define('SELF', (substr($sPhp_self,-1) !== '/') ? $sPhp_self . '/' : $sPhp_self);
 define('RELATIVE', SELF);
 define('DEF_LANG', 'en');
 define('TPL', 'base');
-define('PROT_URL', $sHttp);
 
-define('ROOT_PATH', dirname(__DIR__) . '/');
-define('DATA_PATH', ROOT_PATH . 'data/');
+########## URL ##########
+
+define('PROT_URL', $sHttp);
+define('ROOT_URL', PROT_URL . $_SERVER['HTTP_HOST'] . SELF);
+define('STATIC_URL', RELATIVE . 'static/');
 
 ########## PATH ##########
 
-define('ROOT_URL', PROT_URL . $_SERVER['HTTP_HOST'] . SELF);
-define('STATIC_URL', RELATIVE . 'static/');
+define('ROOT_PATH', dirname(__DIR__) . '/');
+define('DATA_PATH', ROOT_PATH . 'data/');
 
 ########## INFORMATION ##########
 
