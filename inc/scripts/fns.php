@@ -14,8 +14,8 @@ defined('PH7') or exit('Restricted access');
  * @return string The first two lowercase letter of the browser language.
  */
 function get_browser_lang() {
-    $lang = explode(',' ,@$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    return htmlspecialchars(strtolower(substr(chop($lang[0]), 0, 2)));
+    $aLang = explode(',' ,@$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    return htmlspecialchars(strtolower(substr(chop($aLang[0]), 0, 2)));
 }
 
 /**
