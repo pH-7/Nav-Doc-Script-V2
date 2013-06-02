@@ -1,47 +1,64 @@
-/**
- * @author      SORIA Pierre-Henry
- * @email       pierrehs@hotmail.com
- * @link        http://github.com/pH-7/Nav-Doc-Script-V2
- * @copyright   Copyright pH7 Script All Rights Reserved.
- * @license     CC-BY - http://creativecommons.org/licenses/by/3.0/
+/*
+ * Title:           AjPH
+ * Description:     Loading pages in Ajax with HTML5 pushState.
+ *
+ * Author:          Pierre-Henry Soria <ph7software@gmail.com>
+ * Copyright:       (c) 2012-2013, Pierre-Henry Soria. All Rights Reserved.
+ * License:         GNU General Public License; See PH7.LICENSE.txt and PH7.COPYRIGHT.txt in the root directory.
+ * Version:         1.3
  */
 
-$(document).ready(function() {
- if (window.history && history.pushState) {
-  historyedited = false;
-  $(window).bind('popstate', function(e) {
-   if (historyedited) {
-    loadPage(location.pathname + location.search);
-   }
-  });
-  doPager();
- }
+$(document).ready(function()
+{
+    if(window.history && history.pushState)
+    {
+        bHistoryEdited = false;
+        $(window).bind('popstate', function() {
+            if(bHistoryEdited) {
+                loadPage(location.pathname + location.search);
+            }
+        });
+        doPager();
+    }
 });
 
-function doPager() {
- $('a[data-load=ajax]').click(function(e) {
-  e.preventDefault();
-  $('#ajph').html("<div id='loading'>Loading...</div>");
-  loadPage($(this).attr('href'));
-  history.pushState(null, null, $(this).attr('href'));
-  historyedited = true;
- });
+function doPager()
+{
+    // Loading the ajax pages
+    $('a[data-load=ajax]').click(function(oE)
+    {
+        oE.preventDefault();
+        $('#ajph').html("<div id='loading'>Loading...</div>");
+        loadPage($(this).attr('href'));
+        history.pushState(null, null, $(this).attr('href'));
+        bHistoryEdited = true;
+    });
 }
 
-function loadPage(link) {
-        $.ajax({
-            url: link,
-            processData: true,
-            dataType:'html',
-            success: function(data) {
-                var content = $(data).find("#sub_ajph");
-                var title = $(data).filter('title').text();
-                document.title = title;
 
-                $('#ajph').fadeOut('200',function(){
-                    $(this).html(content.html()).fadeIn('200');
-                });
-            }
-         });
-              doPager();
+/**
+ * Load page.
+ *
+ * @param {String} Link
+ * @return {Void}
+ */
+function loadPage(sLink)
+{
+    $.ajax({
+        url: sLink,
+        processData: true,
+        dataType:'html',
+        success: function(oData)
+        {
+            var oContent = $(oData).find("#sub_ajph"); // Get the new Contents
+            var oTitle = $(oData).filter('title'); // Get the new Title tag
+            var oHeadings = $(oData).find('#headings:first'); // Get the Headings Group
+            $('title').text(oTitle.text()); // Set Title
+            $('#headings:first').html(oHeadings.html()); // Set the Headings Group
+            $('#ajph').fadeOut(200, function() {
+                $(this).html(oContent.html()).fadeIn(200); // Set Contents
+            });
+        }
+    });
+    doPager();
 }

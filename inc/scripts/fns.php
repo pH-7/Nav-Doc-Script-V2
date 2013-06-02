@@ -1,21 +1,22 @@
 <?php
 /**
- * @author      SORIA Pierre-Henry
+ * @author      Pierre-Henry Soria
  * @email       pierrehs@hotmail.com
  * @link        http://github.com/pH-7/Nav-Doc-Script-V2
- * @copyright   Copyright pH7 Script All Rights Reserved.
+ * @copyright   (c) 2012-2013, Pierre-Henry Soria. All Rights Reserved.
  * @license     CC-BY - http://creativecommons.org/licenses/by/3.0/
  */
+
 namespace PH7\Doc;
 defined('PH7') or exit('Restricted access');
 
 /**
- * @desc Gets Browser User Language.
+ * @desc Detect the user's preferred language.
  * @return string The first two lowercase letter of the browser language.
  */
 function get_browser_lang() {
     $aLang = explode(',' ,@$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    return htmlspecialchars(strtolower(substr(chop($aLang[0]), 0, 2)));
+    return escape(strtolower(substr(chop($aLang[0]), 0, 2)));
 }
 
 /**
@@ -53,16 +54,13 @@ function parse_var($sContent) {
 }
 
 /**
- * @desc Gets the page name.
+ * @desc Get the page name.
  * @return string
  */
 function get_page_name() {
-    if(empty($_GET['p']))
-    {
+    if(empty($_GET['p'])) {
         $sName = SITE_SLOGAN;
-    }
-    else
-    {
+    } else {
         $sPageName = str_replace(array('-','_'), '', $_GET['p']);
         $sName = ucfirst($sPageName);
     }
@@ -129,6 +127,14 @@ function set_lang() {
     }
 
     return $sLang;
+}
+
+/**
+ * @desc Escape function with htmlspecialchars() PHP function.
+ * @return string
+ */
+function escape($sVal) {
+    return htmlspecialchars($sVal, ENT_QUOTES);
 }
 
 /**

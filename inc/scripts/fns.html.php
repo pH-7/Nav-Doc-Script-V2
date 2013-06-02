@@ -1,11 +1,12 @@
 <?php
 /**
- * @author      SORIA Pierre-Henry
+ * @author      Pierre-Henry Soria
  * @email       pierrehs@hotmail.com
  * @link        http://github.com/pH-7/Nav-Doc-Script-V2
- * @copyright   Copyright pH7 Script All Rights Reserved.
+ * @copyright   (c) 2012-2013, Pierre-Henry Soria. All Rights Reserved.
  * @license     CC-BY - http://creativecommons.org/licenses/by/3.0/
  */
+
 namespace PH7\Doc;
 defined('PH7') or exit('Restricted access');
 
