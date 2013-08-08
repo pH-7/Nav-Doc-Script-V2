@@ -41,5 +41,5 @@ define('DATA_PATH', ROOT_PATH . 'data/');
 
 ########## INFORMATION ##########
 
-define('SITE_NAME', 'pH');
+define('SITE_NAME', 'pH7 Nav Doc');
 define('SITE_SLOGAN', 'Documentation');

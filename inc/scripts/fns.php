@@ -33,7 +33,7 @@ function get_page($sPage)
         echo parse_var($sPage);
     }
     else
-    {   // Page Not Found!
+    {   // Set the Not Found page
         error_404();
     }
 }
