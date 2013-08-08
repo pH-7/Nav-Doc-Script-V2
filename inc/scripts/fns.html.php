@@ -11,7 +11,7 @@ namespace PH7\Doc;
 defined('PH7') or exit('Restricted access');
 
 /**
- * @return string The links of the files doc tpl.
+ * @return string The links of the tpl files doc.
  */
 function get_links_html()
 {
@@ -34,7 +34,7 @@ function get_links_html()
 }
 
 /**
- * @return string The links of the languages ​​available.
+ * @return string The links of the ​​available languages.
  */
 function get_langs_html()
 {
