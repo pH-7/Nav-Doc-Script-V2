@@ -117,7 +117,7 @@ function get_dir_list($sDir)
  */
 function get_current_url()
 {
-    return PROT_URL . strip_tags($_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
+    return PROT_URL . escape($_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
 }
 
 /**
@@ -149,7 +149,7 @@ function set_lang()
 }
 
 /**
- * Escape function with htmlspecialchars() PHP function.
+ * Escape string with htmlspecialchars() PHP function.
  *
  * @return string
  */
