@@ -3,7 +3,7 @@
  * @author      Pierre-Henry Soria
  * @email       pierrehs@hotmail.com
  * @link        http://github.com/pH-7/Nav-Doc-Script-V2
- * @copyright   (c) 2012-2014, Pierre-Henry Soria. All Rights Reserved.
+ * @copyright   (c) 2012-2016, Pierre-Henry Soria. All Rights Reserved.
  * @license     CC-BY - http://creativecommons.org/licenses/by/3.0/
  */
 
@@ -16,7 +16,7 @@ defined('PH7') or exit('Restricted access');
 ########## URL ##########
 
 $sHttp = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS'] == 'on')) ? 'https://' : 'http://';
-$sPhp_self = dirname(htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES));
+$sPhp_self = str_replace('\\', '', dirname(htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES))); // Remove backslashes for Windows compatibility
 
 #################### CONSTANTS ####################
 
