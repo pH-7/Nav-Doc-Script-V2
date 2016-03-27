@@ -21,19 +21,22 @@ Simply place your documentation files with the extension. Dwt in a language fold
 
 ## Server Requirements
 
------ Operating System -----
+#### Operating System
+
 Linux, BSD, Solaris, Windows or Mac
 
------ Web Server -----
+#### Web Server
+
 Apache, CGI, FastCGI, IIS or ISAPI
 
------ Application Server -----
+#### Application Server
+
 PHP 5.3.0 or higher.
+
 
 ## Who uses pH7 Nav Doc?
 
 - [pH7CMS Doc](http://ph7cms.com/doc/)
-
 
 
 ## Author
