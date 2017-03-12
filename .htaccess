@@ -11,3 +11,6 @@ RewriteRule ^([a-z]{2})/?$ index.php?l=$1 [L]
 # e.g. http://my-site.com/my-page/en/
 RewriteRule ^([a-z]{2})/([^/]+)/?$ index.php?p=$2&l=$1 [L]
 
+# Force the URL to be https (only if you have an SSL certificate)
+# RewriteCond %{HTTP:X-Forwarded-SSL} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
