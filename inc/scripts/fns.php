@@ -89,7 +89,8 @@ function get_lang()
 
 /**
  * @param string $sDir The directory.
- * @return string The list of the folder that is in the directory.
+ *
+ * @return array The list of the folder that is in the directory.
  */
 function get_dir_list($sDir)
 {
