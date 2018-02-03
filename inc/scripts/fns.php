@@ -26,6 +26,7 @@ function get_browser_lang()
  * Display a page if the file exists, otherwise displays a 404.
  *
  * @param string $sPage The page.
+ *
  * @return void
  */
 function get_page($sPage)
@@ -42,6 +43,7 @@ function get_page($sPage)
  * Parse the text to transform variable.
  *
  * @param string $sContent The text.
+ *
  * @return string The text parsed.
  */
 function parse_var($sContent)
@@ -139,6 +141,7 @@ function set_lang()
  * Escape string with htmlspecialchars() PHP function.
  *
  * @param string $sVal
+ *
  * @return string
  */
 function escape($sVal)
