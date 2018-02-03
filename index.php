@@ -3,11 +3,12 @@
  * @author      Pierre-Henry Soria
  * @email       pierrehs@hotmail.com
  * @link        http://github.com/pH-7/Nav-Doc-Script-V2
- * @copyright   (c) 2012-2017, Pierre-Henry Soria. All Rights Reserved.
+ * @copyright   (c) 2012-2018, Pierre-Henry Soria. All Rights Reserved.
  * @license     CC-BY - http://creativecommons.org/licenses/by/3.0/
  */
 
 namespace PH7\Doc;
+
 define('PH7', 1);
 
 include __DIR__ . '/inc/conf.const.php';
